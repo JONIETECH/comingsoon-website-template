@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'DIN Bold';
+    src: url('DIN-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
 :root {
     --primary-color: #2580b2;
     --secondary-color: #87ff0a;
@@ -64,25 +71,53 @@ body::before {
     background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 }
 
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.brand-name {
+    text-align: left;
+}
+
 .logo {
-    max-width: 150px;
-    margin-bottom: 1rem;
-}
-
-.animate-bounce {
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    max-width: 100px;
+    margin-bottom: 0;
 }
 
 h1 {
     color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 2.5rem;
+    margin-bottom: 0;
+    font-size: 3.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    line-height: 1;
+    font-family: 'DIN Bold', sans-serif;
+    letter-spacing: 2px;
+}
+
+.subtext {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+    font-family: 'DIN Bold', sans-serif;
+}
+
+.clicks {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+.agency {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    display: block;
+    width: 100%;
+    text-align: left;
 }
 
 .coming-soon {
@@ -186,5 +221,22 @@ h1 {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
+    }
+
+    .brand {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .brand-name {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    .clicks, .agency {
+        font-size: 1.4rem;
     }
 } 
