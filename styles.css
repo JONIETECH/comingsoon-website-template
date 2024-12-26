@@ -37,7 +37,6 @@ body {
     position: relative;
 }
 
-/* We can remove the gradient from the overlay since it's now in the body */
 body::before {
     content: '';
     position: absolute;
@@ -45,7 +44,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.1); /* Optional: slight darkening overlay */
+    background: rgba(0, 0, 0, 0.3); /* Optional: slight darkening overlay */
     z-index: 1;
 }
 
@@ -57,7 +56,7 @@ body::before {
     padding: 3rem;
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
     max-width: 90%;
     width: 600px;
