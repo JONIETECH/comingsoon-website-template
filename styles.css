@@ -23,6 +23,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Add gradient background as fallback */
+    background: linear-gradient(
+        45deg,
+        rgb(137, 255, 10),
+        rgb(37, 129, 178)
+    );
+    /* Layer the image on top of the gradient */
     background-image: url('lebebg.png');
     background-size: cover;
     background-position: center;
@@ -30,7 +37,7 @@ body {
     position: relative;
 }
 
-/* Add overlay */
+/* We can remove the gradient from the overlay since it's now in the body */
 body::before {
     content: '';
     position: absolute;
@@ -38,12 +45,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        45deg,
-        rgba(137, 255, 10, 0.253),
-        rgba(37, 129, 178, 0.322)  /* --primary-color with opacity */
-    )    /* --accent-color with opacity */
-    ;
+    background: rgba(0, 0, 0, 0.1); /* Optional: slight darkening overlay */
     z-index: 1;
 }
 
