@@ -139,7 +139,7 @@ h1 {
 }
 
 .contact-heading {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     margin: 2rem 0;
     font-size: 1.5rem;
     animation: fadeIn 1s ease-out;
