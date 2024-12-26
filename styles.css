@@ -1,6 +1,6 @@
 :root {
     --primary-color: #2580b2;
-    --secondary-color: #6f7f58;
+    --secondary-color: #87ff0a;
     --accent-color: #87ff0a;
 }
 
@@ -12,21 +12,46 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url('lebebg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
 }
 
+/* Add overlay */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(137, 255, 10, 0.253),
+        rgba(37, 129, 178, 0.322)  /* --primary-color with opacity */
+    )    /* --accent-color with opacity */
+    ;
+    z-index: 1;
+}
+
+/* Make container appear above overlay */
 .container {
+    position: relative;
+    z-index: 2;
     text-align: center;
     padding: 3rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    max-width: 90%;
+    width: 600px;
 }
 
 .container::before {
