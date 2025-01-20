@@ -181,21 +181,28 @@ h1 {
     flex-direction: column;
     align-items: center;
     min-width: 80px;
+    background: rgba(135, 255, 10, 0.1);
+    padding: 0.8rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .countdown-item span {
     font-size: 2.5rem;
     color: var(--primary-color);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    animation: pulse 1s infinite;
+    font-family: 'DIN Bold', sans-serif;
+    -webkit-text-fill-color: var(--primary-color); /* For iOS */
+    display: block; /* For better iOS compatibility */
 }
 
 .countdown-item .label {
     font-size: 0.9rem;
     color: var(--secondary-color);
+    -webkit-text-fill-color: var(--secondary-color); /* For iOS */
     text-transform: uppercase;
     margin-top: 0.5rem;
-    animation: none;
+    font-family: 'DIN Bold', sans-serif;
 }
 
 @keyframes pulse {
@@ -303,6 +310,7 @@ h1 {
     
     .countdown-item {
         min-width: 60px;
+        padding: 0.5rem;
     }
     
     .countdown-item span {

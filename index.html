@@ -58,29 +58,48 @@
     </div>
     <script>
         function updateCountdown() {
-            const now = new Date();
+            const now = new Date().getTime();
             const target = new Date();
             target.setHours(21, 0, 0, 0); // Set to 9 PM today
+            let targetTime = target.getTime();
             
             // If it's already past 9 PM, set target to tomorrow 9 PM
-            if (now >= target) {
-                target.setDate(target.getDate() + 1);
+            if (now >= targetTime) {
+                targetTime += 24 * 60 * 60 * 1000; // Add 24 hours
             }
             
-            const diff = target - now;
+            const diff = targetTime - now;
             
             const hours = Math.floor(diff / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
             
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            // Safely update DOM elements
+            const updateElement = (id, value) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = value.toString().padStart(2, '0');
+                }
+            };
+            
+            updateElement('hours', hours);
+            updateElement('minutes', minutes);
+            updateElement('seconds', seconds);
         }
 
         // Update immediately and then every second
         updateCountdown();
-        setInterval(updateCountdown, 1000);
+        const interval = setInterval(updateCountdown, 1000);
+
+        // Cleanup interval when page is hidden
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(interval);
+            } else {
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            }
+        });
     </script>
 </body>
 </html> 
