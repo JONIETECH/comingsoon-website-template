@@ -60,12 +60,17 @@
         function updateCountdown() {
             const now = new Date().getTime();
             const target = new Date();
-            target.setHours(21, 0, 0, 0); // Set to 9 PM today
+            target.setHours(21, 0, 0, 0); // Set to 11 PM today
             let targetTime = target.getTime();
             
-            // If it's already past 9 PM, set target to tomorrow 9 PM
+            // If it's already past 11 PM, display loading
             if (now >= targetTime) {
-                targetTime += 24 * 60 * 60 * 1000; // Add 24 hours
+                document.querySelector('.countdown').innerHTML = `
+                    <h3 class="launch-text">Loading...</h3>
+                    <img src="lebeload.gif" alt="Loading" class="loading-gif" />
+                `;
+                clearInterval(interval); // Stop the countdown
+                return;
             }
             
             const diff = targetTime - now;

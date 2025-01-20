@@ -332,4 +332,9 @@ h1 {
     .countdown-wrapper {
         gap: 1.2rem;
     }
+}
+
+.loading-gif {
+    max-width: 100px; /* Adjust size as needed */
+    margin-top: 1rem;
 } 
