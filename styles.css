@@ -53,13 +53,12 @@ body::before {
     position: relative;
     z-index: 2;
     text-align: center;
-    padding: 3rem;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     max-width: 90%;
-    width: 600px;
+    width: 400px;
 }
 
 .container::before {
@@ -125,84 +124,74 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     margin: 2rem 0;
-    font-family: 'DIN Bold', sans-serif;
 }
 
 .launch-text {
     color: var(--primary-color);
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    background: rgba(135, 255, 10, 0.1);
-    padding: 0.5rem 2rem;
-    border-radius: 50px;
+    letter-spacing: 1px;
+    background: transparent;
+    padding: 0;
     position: relative;
+    margin-bottom: -0.5rem;
 }
 
-/* Create gradient border effect */
-.launch-text::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(
-        45deg,
-        var(--primary-color),
-        var(--secondary-color)
-    );
-    border-radius: 50px;
-    z-index: -1;
-}
-
+/* Remove the gradient border effect */
+.launch-text::before,
 .launch-text::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 50px;
-    z-index: -1;
+    display: none;
 }
 
 .countdown-wrapper {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
+    position: relative;
+    padding: 1rem 0;
+}
+
+/* Add progress bar */
+.countdown-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
 }
 
 .countdown-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 80px;
-    background: rgba(135, 255, 10, 0.1);
-    padding: 0.8rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width: 60px;
+    background: transparent;
+    padding: 0.5rem;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .countdown-item span {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--primary-color);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     font-family: 'DIN Bold', sans-serif;
-    -webkit-text-fill-color: var(--primary-color); /* For iOS */
-    display: block; /* For better iOS compatibility */
+    -webkit-text-fill-color: var(--primary-color);
+    line-height: 1;
 }
 
 .countdown-item .label {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--secondary-color);
-    -webkit-text-fill-color: var(--secondary-color); /* For iOS */
+    -webkit-text-fill-color: var(--secondary-color);
     text-transform: uppercase;
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
     font-family: 'DIN Bold', sans-serif;
+    opacity: 0.9;
 }
 
 @keyframes pulse {
@@ -282,9 +271,9 @@ h1 {
 
 @media (max-width: 768px) {
     .container {
-        width: 70%;
+        width: 85%;
         padding: 1.5rem;
-        max-width: 420px;
+        border-radius: 20px;
     }
     
     .logo {
@@ -299,22 +288,8 @@ h1 {
         font-size: 0.77rem;
     }
     
-    .launch-text {
-        font-size: 1.2rem;
-        padding: 0.3rem 1.5rem;
-    }
-    
-    .countdown-wrapper {
-        gap: 1rem;
-    }
-    
-    .countdown-item {
-        min-width: 60px;
-        padding: 0.5rem;
-    }
-    
     .countdown-item span {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
     }
     
     .countdown-item .label {
@@ -347,5 +322,14 @@ h1 {
 
     .social-links {
         gap: 1rem;
+    }
+
+    .launch-text {
+        font-size: 1.2rem;
+        margin-bottom: -0.3rem;
+    }
+
+    .countdown-wrapper {
+        gap: 1.2rem;
     }
 } 
