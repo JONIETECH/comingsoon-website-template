@@ -177,7 +177,7 @@ h1 {
 }
 
 .countdown-item span {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
     font-family: 'DIN Bold', sans-serif;
     -webkit-text-fill-color: var(--primary-color);
@@ -190,8 +190,8 @@ h1 {
     -webkit-text-fill-color: var(--secondary-color);
     text-transform: uppercase;
     margin-top: 0.3rem;
+    margin-bottom: auto;
     font-family: 'DIN Bold', sans-serif;
-    opacity: 0.9;
 }
 
 @keyframes pulse {
